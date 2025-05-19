@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snapping Target Cursor</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <span id="pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+            <rect width="10" height="10"></rect>
+        </svg>
+    </span>
+
+    <span id="cursor">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" class="top-left">
+            <path d="M 0 10 L 0 0 L 10 0" fill="none" stroke="red" stroke-width="4"></path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" class="top-right">
+            <path d="M 0 0 L 10 0 L 10 10" fill="none" stroke="red" stroke-width="4"></path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" class="bottom-left">
+            <path d="M 10 10 L 0 10 L 0 0" fill="none" stroke="red" stroke-width="4"></path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" class="bottom-right">
+            <path d="M 10 0 L 10 10 L 0 10" fill="none" stroke="red" stroke-width="4"></path>
+        </svg>
+    </span>
+
+    <button class="button" data-interactable>Upload</button>
+    <button class="button" data-interactable>Create Instance</button>
+    <script src="app.js"></script>
+</body>
+</html>

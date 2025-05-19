@@ -1,0 +1,23 @@
+{
+  "name": "snapping-target-cursor",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/liam-mills/snapping-target-cursor#readme",
+  "bugs": {
+    "url": "https://github.com/liam-mills/snapping-target-cursor/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liam-mills/snapping-target-cursor.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server"
+  },
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
+}
