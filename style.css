@@ -1,68 +1,114 @@
 *, *::before, *::after {
     margin: 0;
     padding: 0;
-}
-
-* {
     cursor: none;
 }
 
 :root {
     --primary: #FE5344;
-    --neutral: #E9E7E1;
+    --light: #EEEDEA;
     --dark: #101010;
 }
 
 body {
-  background-color: #1A1B25;
-  height: 100vh;
-  width: 100vw;
-  margin: 0px;  
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+}
+
+::selection {
+    background-color: var(--primary);
+    color: var(--light);
 }
 
 body:hover > :is(#pointer, #cursor) {
-  opacity: 1;
+    opacity: 1;
 }
 
 #pointer, #cursor {
+    --cursor-size: 24px;
     position: fixed;
     top: 0;
     left: 0;
     pointer-events: none;
     z-index: 10000;
-    width: 32px;
-    height: 32px;
+    width: var(--cursor-size);
+    height: var(--cursor-size);
     opacity: 0;
     transition: opacity 200ms ease;
+    display: grid;
 }
 
 #pointer {
-    display: grid;
     place-items: center;
 }
 
 #cursor {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: calc(100% - 20px);
+    gap: calc(100% - calc(var(--cursor-size) / 2));
 }
 
-svg {
-    width: 10px;
-    height: 10px;
+#cursor svg {
+    fill: none;
+}
+
+#cursor path {
+    stroke: var(--primary);
+    stroke-width: 2;
+}
+
+#pointer svg {
     fill: var(--primary);
 }
 
+svg {
+    width: calc(var(--cursor-size) / 4);
+    height: calc(var(--cursor-size) / 4);
+}
+
+.content {
+    max-width: 600px;
+    margin-inline: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.prose {
+    line-height: 1.25;
+}
+
+a {
+    --anchor-space: 2px;
+    padding-block: calc(var(--anchor-space) * 2);
+    margin-block: calc(var(--anchor-space) * -2);
+    padding-inline: var(--anchor-space);
+    margin-inline: calc(var(--anchor-space) * -1);
+    color: var(--primary);
+    text-decoration: none;
+}
+
 .button {
-    background-color: #6765dd21;
-    border: 2px solid rgba(255, 0, 0, 0.144);
+    all: unset;
+    padding: 6px;
+    margin: -6px;
+}
+
+.button span {
+    font-size: 14px;
+    text-transform: uppercase;
+    display: inline-block;
+    background-color: var(--light);
+    color: var(--dark);
     padding: 1rem;
-    color: #FAFAFF;
-    font-family: sans-serif;
-    font-weight: 800;
-    transition: all 200ms ease;
-    margin: 20px;
+    border: 1px solid color-mix(in srgb, var(--primary) 20%, #00000000 80%);
+    transition: border-color 200ms ease, color 200ms ease;
+}
+
+.button:hover span {
+    border-color: var(--primary);
 }

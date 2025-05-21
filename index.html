@@ -10,27 +10,29 @@
 <body>
     <span id="pointer">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
-            <rect width="10" height="10"></rect>
+            <circle cx="5" cy="5" r="4"></circle>
         </svg>
     </span>
 
     <span id="cursor">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" class="top-left">
-            <path d="M 0 10 L 0 0 L 10 0" fill="none" stroke="red" stroke-width="4"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 6" class="top-left">
+            <path d="M 0 6 L 0 0 L 6 0"></path>
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" class="top-right">
-            <path d="M 0 0 L 10 0 L 10 10" fill="none" stroke="red" stroke-width="4"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 6" class="top-right">
+            <path d="M 0 0 L 6 0 L 6 6"></path>
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" class="bottom-left">
-            <path d="M 10 10 L 0 10 L 0 0" fill="none" stroke="red" stroke-width="4"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 6" class="bottom-left">
+            <path d="M 6 6 L 0 6 L 0 0"></path>
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10" class="bottom-right">
-            <path d="M 10 0 L 10 10 L 0 10" fill="none" stroke="red" stroke-width="4"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 6" class="bottom-right">
+            <path d="M 6 0 L 6 6 L 0 6"></path>
         </svg>
     </span>
 
-    <button class="button" data-interactable>Upload</button>
-    <button class="button" data-interactable>Create Instance</button>
+    <div class="content">
+        <p class="prose">In this <a href="https://en.wikipedia.org/wiki/Cyberpunk_derivatives#Postcyberpunk" target="_blank" data-interactable>post-cyberpunk</a> iteration of a possible future, computer technology has advanced to the point that many members of the public possess cyberbrains, technology that allows them to interface their biological brain with various networks. The level of cyberization varies from simple minimal interfaces to almost complete replacement of the brain with cybernetic parts, in cases of severe trauma.</p>
+        <button class="button" data-interactable><span>Create New World</span></button>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>

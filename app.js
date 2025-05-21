@@ -19,19 +19,26 @@ const throttle = (callback, delay) => {
 }
 
 const animatePointer = (event) => {
-    let pointerX = `calc(${event.clientX}px - 16px)`,
-        pointerY = `calc(${event.clientY}px - 16px)`;
+    let pointerX = `calc(${event.clientX}px - 12px)`,
+        pointerY = `calc(${event.clientY}px - 12px)`;
 
-    pointer.style.transform = `translate(${pointerX}, ${pointerY})`;
+    const pointer_keyframes = {
+        transform: `translate(${pointerX}, ${pointerY})`
+    };
+
+    pointer.animate(pointer_keyframes, {
+        duration: 50,
+        fill: 'forwards'
+    })
+
+    // pointer.style.transform = `translate(${pointerX}, ${pointerY})`;
 }
 
 const animateCursor = (event, interacting, interactable) => {
-    let cursorX = `calc(${event.clientX}px - 16px)`,
-        cursorY = `calc(${event.clientY}px - 16px)`;
+    let cursorX = `calc(${event.clientX}px - 12px)`,
+        cursorY = `calc(${event.clientY}px - 12px)`;
   
     const dimensions = interacting ? interactable.getBoundingClientRect() : null;
-
-    let speed = dimensions ? average(dimensions.width, dimensions.height) : 200;
 
     if (interacting) {
         cursorX = (dimensions.x) + 'px';
@@ -40,13 +47,13 @@ const animateCursor = (event, interacting, interactable) => {
 
     const cursor_keyframes = {
         transform: `translate(${cursorX}, ${cursorY})`,
-        width: interacting ? `${dimensions.width}px` : '2rem',
-        height: interacting ? `${dimensions.height}px` : '2rem',
+        width: interacting ? `${dimensions.width}px` : '24px',
+        height: interacting ? `${dimensions.height}px` : '24px',
     };
     
     cursor.animate(cursor_keyframes, { 
-        duration: speed, 
-        fill: 'forwards' 
+        duration: 100,
+        fill: 'forwards'
     });
 };
 
@@ -55,8 +62,8 @@ const handlePointerMove = throttle((event) => {
 }, 1);
 
 const handleCursorMove = throttle((event) => {
-    const interactable = event.target.closest('[data-interactable]');
-    const interacting = (interactable !== null);
+    const interactable = event.target.closest('[data-interactable]'),
+          interacting = (interactable !== null);
 
     animateCursor(event, interacting, interactable);
 }, 10);
